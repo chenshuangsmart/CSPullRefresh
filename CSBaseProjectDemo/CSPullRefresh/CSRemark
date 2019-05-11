@@ -1,0 +1,15 @@
+该第三方控件技术相关说明
+
+一.变量说明
+参考 [iOS 修饰符~ NS_UNAVAILABLE、NS_REQUIRES_SUPER](https://blog.csdn.net/shihuboke/article/details/78200339)
+1. NS_REQUIRES_SUPER 用来修饰所有方法，表示子类override父类的方法时，必须在方法内部调用super的这个方法。
+
+2. 如果子类真的不想去调用 super用 NS_REQUIRES_SUPER修饰的方法，又不想出现警告，那么可以用下面的方式处理
+#pragma clang diagnostic push
+
+#pragma clang diagnostic ignored "-Wobjc-missing-super-calls"
+
+方法实现
+
+#pragma clang diagnostic pop
+

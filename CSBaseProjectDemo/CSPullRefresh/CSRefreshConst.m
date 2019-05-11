@@ -1,15 +1,11 @@
 //
-//  ViewController.h
+//  CSRefreshConst.m
 //  CSBaseProjectDemo
 //
 //  Created by cs on 2019/5/11.
 //  Copyright © 2019 cs. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CSRefreshConst.h"
 
-@interface ViewController : UIViewController
-
-
-@end
 
