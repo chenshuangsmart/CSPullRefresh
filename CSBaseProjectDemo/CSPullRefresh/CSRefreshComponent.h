@@ -31,9 +31,9 @@ typedef NS_ENUM(NSInteger, CSRefreshState) {
 /** 进入刷新状态的回调 */
 typedef void (^CSRefreshComponentRefreshingBlock)(void);
 /** 开始刷新后的回调 */
-typedef void (CSRefreshComponentBeginRefreshingBlock)(void);
+typedef void (^CSRefreshComponentBeginRefreshingBlock)(void);
 /** 刷新结束后的回调 */
-typedef void(CSRefreshComponentEndRefreshingBlock)(void);
+typedef void(^CSRefreshComponentEndRefreshingBlock)(void);
 
 /**
  刷新控件基类视图
@@ -47,10 +47,33 @@ typedef void(CSRefreshComponentEndRefreshingBlock)(void);
 
 /** 进入刷新状态的回调 */
 @property(nonatomic, copy)CSRefreshComponentRefreshingBlock refreshingBlock;
+/** 设置回调对象和回调方法 */
+- (void)setRefreshingTarget:(id)target refreshingAction:(SEL)action;
+
+/** 回调对象 */
+@property(nonatomic, weak)id refreshingTarget;
+/** 回调方法 */
+@property(nonatomic, assign)SEL refreshingAction;
+/** 触发回调(交由子类去实现) */
+- (void)executeRefreshingCallback;
 
 #pragma mark - 刷新状态的控制
 
-/** state */
+/** 开始刷新 */
+- (void)beginRefreshing;
+/** 开始刷新后完成回调 */
+- (void)beginRefreshingWithCompletionBlock:(void(^)(void))completionBlock;
+/** 结束刷新状态 */
+- (void)endRefreshing;
+/** 结束刷新回调 */
+- (void)endRefreshingWithCompletionBlock:(void(^)(void))completionBlock;
+/** 开始刷新后的回调 */
+@property(nonatomic, copy)CSRefreshComponentBeginRefreshingBlock beginRefreshingCompletionBlock;
+/** 结束刷新的回调 */
+@property(nonatomic, copy)CSRefreshComponentEndRefreshingBlock endRefreshingCompletionBlock;
+/** 是否正在刷新 */
+@property(nonatomic, assign, readonly, getter=isRefreshing)BOOL refreshing;
+/** 刷新状态 一般交给子类内部实现 */
 @property(nonatomic, assign)CSRefreshState state;
 
 #pragma mark - 布局 - 交由子类去实现
@@ -59,6 +82,12 @@ typedef void(CSRefreshComponentEndRefreshingBlock)(void);
 - (void)prepare NS_REQUIRES_SUPER;
 /** 布局子控件frame */
 - (void)placeSubviews NS_REQUIRES_SUPER;
+/** 当scrollView的contentOffset发生改变的时候调用 */
+- (void)scrollViewContentOffsetDidChange:(NSDictionary *)change NS_REQUIRES_SUPER;
+/** 当scrollView的contentSize发生改变的时候调用 */
+- (void)scrollViewContentSizeDidChange:(NSDictionary *)change NS_REQUIRES_SUPER;
+/** 当scrollView的拖拽状态发生改变的时候调用 */
+- (void)scrollViewPanStateDidChange:(NSDictionary *)change NS_REQUIRES_SUPER;
 
 #pragma mark - 对外暴露接口访问
 
@@ -66,6 +95,13 @@ typedef void(CSRefreshComponentEndRefreshingBlock)(void);
 @property (assign, nonatomic, readonly) UIEdgeInsets scrollViewOriginalInset;
 /** 父控件 */
 @property (weak, nonatomic, readonly) UIScrollView *scrollView;
+
+#pragma mark - 其他一些参数变量
+
+/** 拉拽的百分比(交给子类重写) */
+@property(nonatomic, assign)CGFloat pullingPercent;
+/** 根据拖拽比例自动切换透明度 */
+@property(nonatomic, assign, getter=isAutomaticallyChangeAlpha)BOOL automaticallyChangeAlpha;
 
 @end
 
