@@ -14,6 +14,27 @@
 
 @implementation CSRefreshComponent
 
+#pragma mark - 初始化方法
+
+/** 通过 block 初始化 */
+- (instancetype)initWithhRefreshingBlock:(CSRefreshComponentRefreshingBlock)refreshingBlock {
+    self = [super init];
+    if (self) {
+        self.refreshingBlock = refreshingBlock;
+    }
+    return self;
+}
+
+/** 通过 target action 初始化*/
+- (instancetype)initWithRefreshingTarget:(id)target action:(SEL)action {
+    self = [super init];
+    if (self) {
+        self.refreshingTarget = target;
+        self.refreshingAction = action;
+    }
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {

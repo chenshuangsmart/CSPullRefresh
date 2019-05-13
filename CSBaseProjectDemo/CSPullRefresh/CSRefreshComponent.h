@@ -43,6 +43,14 @@ typedef void(^CSRefreshComponentEndRefreshingBlock)(void);
     __weak UIScrollView *_scrollView;   // 父控件
 }
 
+#pragma mark - 初始化方法
+
+/** 通过 block 初始化 */
+- (instancetype)initWithhRefreshingBlock:(CSRefreshComponentRefreshingBlock)refreshingBlock;
+
+/** 通过 target action 初始化*/
+- (instancetype)initWithRefreshingTarget:(id)target action:(SEL)action;
+
 #pragma mark - 刷新回调
 
 /** 进入刷新状态的回调 */

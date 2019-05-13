@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		401BD78E228990B90055B54F /* CSRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BD78D228990B90055B54F /* CSRefreshHeader.m */; };
 		402708C72286A31D00032FE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 402708C62286A31D00032FE3 /* AppDelegate.m */; };
 		402708E42286A62700032FE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 402708DC2286A62700032FE3 /* Assets.xcassets */; };
 		402708E62286A62700032FE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 402708DE2286A62700032FE3 /* LaunchScreen.storyboard */; };
@@ -34,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		3A8FA4E0B0A4F57AD331B1DA /* Pods-CSBaseProjectDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSBaseProjectDemo.release.xcconfig"; path = "Target Support Files/Pods-CSBaseProjectDemo/Pods-CSBaseProjectDemo.release.xcconfig"; sourceTree = "<group>"; };
+		401BD78C228990B90055B54F /* CSRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSRefreshHeader.h; sourceTree = "<group>"; };
+		401BD78D228990B90055B54F /* CSRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshHeader.m; sourceTree = "<group>"; };
 		402708C22286A31D00032FE3 /* CSBaseProjectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSBaseProjectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		402708C52286A31D00032FE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		402708C62286A31D00032FE3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				4027094C2286D1C900032FE3 /* CSRefreshConst.m */,
 				402709402286BA0900032FE3 /* CSRefreshComponent.h */,
 				402709412286BA0900032FE3 /* CSRefreshComponent.m */,
+				401BD78C228990B90055B54F /* CSRefreshHeader.h */,
+				401BD78D228990B90055B54F /* CSRefreshHeader.m */,
 				402709392286AD1800032FE3 /* UIScrollView+CSRefresh.h */,
 				4027093A2286AD1800032FE3 /* UIScrollView+CSRefresh.m */,
 				4027093C2286B19E00032FE3 /* UIScrollView+CSNoData.h */,
@@ -361,6 +366,7 @@
 				402709072286A71C00032FE3 /* UILabel+Extension.m in Sources */,
 				402709162286A72E00032FE3 /* NewsModel.m in Sources */,
 				402709112286A71C00032FE3 /* AlertUtils.m in Sources */,
+				401BD78E228990B90055B54F /* CSRefreshHeader.m in Sources */,
 				402709452286C7E300032FE3 /* UIView+CSExtension.m in Sources */,
 				402709122286A71C00032FE3 /* FPSHandler.m in Sources */,
 				402708E82286A62700032FE3 /* main.m in Sources */,
