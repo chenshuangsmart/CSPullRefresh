@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		401BD78E228990B90055B54F /* CSRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BD78D228990B90055B54F /* CSRefreshHeader.m */; };
+		401BD797228AD3560055B54F /* CSRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BD796228AD3560055B54F /* CSRefreshStateHeader.m */; };
 		402708C72286A31D00032FE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 402708C62286A31D00032FE3 /* AppDelegate.m */; };
 		402708E42286A62700032FE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 402708DC2286A62700032FE3 /* Assets.xcassets */; };
 		402708E62286A62700032FE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 402708DE2286A62700032FE3 /* LaunchScreen.storyboard */; };
@@ -37,6 +38,8 @@
 		3A8FA4E0B0A4F57AD331B1DA /* Pods-CSBaseProjectDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSBaseProjectDemo.release.xcconfig"; path = "Target Support Files/Pods-CSBaseProjectDemo/Pods-CSBaseProjectDemo.release.xcconfig"; sourceTree = "<group>"; };
 		401BD78C228990B90055B54F /* CSRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSRefreshHeader.h; sourceTree = "<group>"; };
 		401BD78D228990B90055B54F /* CSRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshHeader.m; sourceTree = "<group>"; };
+		401BD795228AD3560055B54F /* CSRefreshStateHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSRefreshStateHeader.h; sourceTree = "<group>"; };
+		401BD796228AD3560055B54F /* CSRefreshStateHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshStateHeader.m; sourceTree = "<group>"; };
 		402708C22286A31D00032FE3 /* CSBaseProjectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSBaseProjectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		402708C52286A31D00032FE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		402708C62286A31D00032FE3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -214,10 +217,12 @@
 				4027093F2286B4D000032FE3 /* CSPullRefresh.h */,
 				4027094B2286D1C900032FE3 /* CSRefreshConst.h */,
 				4027094C2286D1C900032FE3 /* CSRefreshConst.m */,
-				402709402286BA0900032FE3 /* CSRefreshComponent.h */,
-				402709412286BA0900032FE3 /* CSRefreshComponent.m */,
+				401BD795228AD3560055B54F /* CSRefreshStateHeader.h */,
+				401BD796228AD3560055B54F /* CSRefreshStateHeader.m */,
 				401BD78C228990B90055B54F /* CSRefreshHeader.h */,
 				401BD78D228990B90055B54F /* CSRefreshHeader.m */,
+				402709402286BA0900032FE3 /* CSRefreshComponent.h */,
+				402709412286BA0900032FE3 /* CSRefreshComponent.m */,
 				402709392286AD1800032FE3 /* UIScrollView+CSRefresh.h */,
 				4027093A2286AD1800032FE3 /* UIScrollView+CSRefresh.m */,
 				4027093C2286B19E00032FE3 /* UIScrollView+CSNoData.h */,
@@ -358,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				401BD797228AD3560055B54F /* CSRefreshStateHeader.m in Sources */,
 				402709092286A71C00032FE3 /* UIView+Extension.m in Sources */,
 				4027094D2286D1C900032FE3 /* CSRefreshConst.m in Sources */,
 				4027093B2286AD1800032FE3 /* UIScrollView+CSRefresh.m in Sources */,
