@@ -22,6 +22,47 @@
     __weak UILabel *_stateLbe;
 }
 
+#pragma mark - 视图布局 - 重写父类方法
+
+- (void)prepare {
+    [super prepare];
+    
+    // 初始化间距
+    self.labelLeftDistance = kRefreshLabelLeftInset;
+    
+    // 初始化文字
+    [self setTitle:@"下拉可以刷新" forState:CSRefreshStateNormal];
+    [self setTitle:@"松开立即刷新" forState:CSRefreshStatePulling];
+    [self setTitle:@"正在刷新数据中..." forState:CSRefreshStateRefreshing];
+}
+
+- (void)placeSubviews {
+    [super placeSubviews];
+    
+    if (self.stateLbe.isHidden) {
+        return;
+    }
+    
+    // 看看状态视图是否有添加约束
+    BOOL noConstrainsOnStateLbe = self.stateLbe.constraints.count == 0;
+    
+    if (self.lastUpdatedTimeLbe.isHidden) {
+        if (noConstrainsOnStateLbe) {
+            self.stateLbe.frame = self.bounds;
+        }
+    } else {
+        // 状态
+        if (noConstrainsOnStateLbe) {
+            self.stateLbe.frame = CGRectMake(0, 0, self.cs_width, self.cs_height * 0.5);
+        }
+        
+        // 更新时间
+        if (self.lastUpdatedTimeLbe.constraints.count == 0) {
+            self.lastUpdatedTimeLbe.frame = CGRectMake(0, self.cs_height * 0.5, self.cs_width, self.cs_height * 0.5);
+        }
+    }
+}
+
 #pragma mark - 状态相关
 
 - (void)setState:(CSRefreshState)state {
@@ -80,9 +121,9 @@
         NSString *time = [formatter stringFromDate:lastUpdatedTime];
         
         // 显示日期
-        self.lastUpdatedTimeLbe.text = [NSString stringWithFormat:@"%@%@%@",@"Last updated:",isToday ? @"Today" : @"",time];
+        self.lastUpdatedTimeLbe.text = [NSString stringWithFormat:@"%@%@%@",@"最后更新:",isToday ? @"今天" : @"",time];
     } else {
-        self.lastUpdatedTimeLbe.text = [NSString stringWithFormat:@"%@%@",@"Last updated:",@"No record"];
+        self.lastUpdatedTimeLbe.text = [NSString stringWithFormat:@"%@%@",@"最后更新:",@"无记录"];
     }
 }
 

@@ -13,3 +13,15 @@
 
 #pragma clang diagnostic pop
 
+3.异步主线程执行,不强持有 self
+#define CSRefreshDispatchAsyncOnMainQueue(code)     \
+__weak typeof (self) weakSelf = self;   \
+dispatch_async(dispatch_get_main_queue(), ^{    \
+typeof (weakSelf) self = weakSelf;  \
+{code}  \
+}); \
+
+5.setNeedsLayout
+当一个UIView对象调用setNeedsLayout方法时，实际上等同于做了一个标记，告诉系统需要重新布局，但不会立刻执行，直到drawing cycle循环到达该节点时，才会调用layoutSubviews方法重新布局。
+
+

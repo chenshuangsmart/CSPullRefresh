@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		401BD78E228990B90055B54F /* CSRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BD78D228990B90055B54F /* CSRefreshHeader.m */; };
 		401BD797228AD3560055B54F /* CSRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BD796228AD3560055B54F /* CSRefreshStateHeader.m */; };
+		401BD79A228BA0B50055B54F /* CSRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BD799228BA0B50055B54F /* CSRefreshNormalHeader.m */; };
+		401BD79D228CF2DD0055B54F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BD79C228CF2DD0055B54F /* ViewController.m */; };
 		402708C72286A31D00032FE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 402708C62286A31D00032FE3 /* AppDelegate.m */; };
 		402708E42286A62700032FE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 402708DC2286A62700032FE3 /* Assets.xcassets */; };
 		402708E62286A62700032FE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 402708DE2286A62700032FE3 /* LaunchScreen.storyboard */; };
@@ -40,6 +42,10 @@
 		401BD78D228990B90055B54F /* CSRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshHeader.m; sourceTree = "<group>"; };
 		401BD795228AD3560055B54F /* CSRefreshStateHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSRefreshStateHeader.h; sourceTree = "<group>"; };
 		401BD796228AD3560055B54F /* CSRefreshStateHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshStateHeader.m; sourceTree = "<group>"; };
+		401BD798228BA0B50055B54F /* CSRefreshNormalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSRefreshNormalHeader.h; sourceTree = "<group>"; };
+		401BD799228BA0B50055B54F /* CSRefreshNormalHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshNormalHeader.m; sourceTree = "<group>"; };
+		401BD79B228CF2DC0055B54F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		401BD79C228CF2DD0055B54F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		402708C22286A31D00032FE3 /* CSBaseProjectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSBaseProjectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		402708C52286A31D00032FE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		402708C62286A31D00032FE3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -173,6 +179,8 @@
 			children = (
 				402708FD2286A71B00032FE3 /* HomeViewController.h */,
 				402708F72286A71B00032FE3 /* HomeViewController.m */,
+				401BD79B228CF2DC0055B54F /* ViewController.h */,
+				401BD79C228CF2DD0055B54F /* ViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -217,6 +225,8 @@
 				4027093F2286B4D000032FE3 /* CSPullRefresh.h */,
 				4027094B2286D1C900032FE3 /* CSRefreshConst.h */,
 				4027094C2286D1C900032FE3 /* CSRefreshConst.m */,
+				401BD798228BA0B50055B54F /* CSRefreshNormalHeader.h */,
+				401BD799228BA0B50055B54F /* CSRefreshNormalHeader.m */,
 				401BD795228AD3560055B54F /* CSRefreshStateHeader.h */,
 				401BD796228AD3560055B54F /* CSRefreshStateHeader.m */,
 				401BD78C228990B90055B54F /* CSRefreshHeader.h */,
@@ -374,10 +384,12 @@
 				402709112286A71C00032FE3 /* AlertUtils.m in Sources */,
 				401BD78E228990B90055B54F /* CSRefreshHeader.m in Sources */,
 				402709452286C7E300032FE3 /* UIView+CSExtension.m in Sources */,
+				401BD79A228BA0B50055B54F /* CSRefreshNormalHeader.m in Sources */,
 				402709122286A71C00032FE3 /* FPSHandler.m in Sources */,
 				402708E82286A62700032FE3 /* main.m in Sources */,
 				402709422286BA0900032FE3 /* CSRefreshComponent.m in Sources */,
 				402709102286A71C00032FE3 /* NewsHandler.m in Sources */,
+				401BD79D228CF2DD0055B54F /* ViewController.m in Sources */,
 				402709082286A71C00032FE3 /* NSString+Additions.m in Sources */,
 				4027093E2286B19E00032FE3 /* UIScrollView+CSNoData.m in Sources */,
 				4027092C2286A73B00032FE3 /* NewsCell.m in Sources */,

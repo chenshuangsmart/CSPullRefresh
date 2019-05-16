@@ -113,4 +113,13 @@ typedef void(^CSRefreshComponentEndRefreshingBlock)(void);
 
 @end
 
+#pragma mark - UILabel(CSRefresh)
+
+@interface UILabel(CSRefresh)
+
+/// 求 UILabel 控件文字长度
+- (CGFloat)cs_textWidth;
+
+@end
+
 NS_ASSUME_NONNULL_END

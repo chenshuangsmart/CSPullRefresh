@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "ViewController.h"
 
 @interface HomeViewController ()
 /** debug */
@@ -32,7 +33,7 @@
     // 约束布局实现
     UILabel *normalLbe = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
     normalLbe.textColor = [UIColor blackColor];
-    normalLbe.text = @"约束布局实现";
+    normalLbe.text = @"普通样式下拉上拉刷新";
     normalLbe.textAlignment = NSTextAlignmentCenter;
     normalLbe.backgroundColor = [UIColor orangeColor];
     [normalLbe onTap:self action:@selector(tapNormalLbe)];
@@ -108,7 +109,8 @@
 #pragma mark - action
 
 - (void)tapNormalLbe {
-    
+    ViewController *vc = [[ViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapNeedLoad {
