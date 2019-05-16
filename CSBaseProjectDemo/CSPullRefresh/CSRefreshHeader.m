@@ -111,7 +111,50 @@
 #pragma mark - 刷新状态
 
 - (void)setState:(CSRefreshState)state {
+    CSRefreshStateCheck
     
+    // 根据状态做事情
+    if (state == CSRefreshStateNormal) {    // 恢复正常状态
+        if (oldState != CSRefreshStateRefreshing) {
+            return;
+        }
+        
+        // 保存刷新时间
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:self.lastUpdatedTimeKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        // 恢复 inset 和 offset
+        [UIView animateWithDuration:kRefreshSlowAnimationDuration animations:^{
+            self.scrollView.cs_insetTop += self.insetTDelta;
+            
+            // 自动调整透明度
+            if (self.isAutomaticallyChangeAlpha) {
+                self.alpha = 0.8;
+            }
+        } completion:^(BOOL finished) {
+            self.pullingPercent = 0.0;
+            
+            if (self.endRefreshingCompletionBlock) {
+                self.endRefreshingCompletionBlock();
+            }
+        }];
+    } else if (state == CSRefreshStateRefreshing) { // 处于刷新状态
+        CSRefreshDispatchAsyncOnMainQueue(
+            [UIView animateWithDuration:kRefreshFastAnimationDuration animations:^{
+                if (self.scrollView.panGestureRecognizer.state != UIGestureRecognizerStateCancelled) {
+                    CGFloat top = self.scrollViewOriginalInset.top + self.cs_height;
+                    // 增加滚动区域 top
+                    self.scrollView.cs_insetTop = top;
+                    // 设置滚动位置
+                    CGPoint offset = self.scrollView.contentOffset;
+                    offset.y = -top;
+                    [self.scrollView setContentOffset:offset animated:NO];  // 顶部停留一片刷新区域
+                }
+            } completion:^(BOOL finished) {
+                [self executeRefreshingCallback];
+            }];
+        )
+    }
 }
 
 #pragma mark - 公共方法

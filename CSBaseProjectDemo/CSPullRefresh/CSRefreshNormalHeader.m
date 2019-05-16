@@ -41,7 +41,7 @@
         }
         
         CGFloat textWidth = MAX(stateWidth, timeWidth);
-        arrowCenterX = arrowCenterX - textWidth * 0.5 + self.labelLeftDistance;
+        arrowCenterX -= textWidth * 0.5 + self.labelLeftDistance;
     }
     
     CGFloat arrowCenterY = self.cs_height * 0.5;
