@@ -55,7 +55,7 @@ static NSString *cellId = @"NewsCellId";
 
 - (void)refreshData {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.tableView.pullToRefreshView stopAnimating];
+        [self.tableView stopHeaderRefreshAnimating];
         NSArray *datas = [self getRandomData];
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:datas];
@@ -65,7 +65,7 @@ static NSString *cellId = @"NewsCellId";
 
 - (void)loadNextPage {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.tableView.infiniteScrollingView stopAnimating];
+//        [self.tableView.infiniteScrollingView stopAnimating];
         NSArray *newRows = [self getRandomData];
         [self.dataSource addObjectsFromArray:newRows];
         [self.tableView beginUpdates];
@@ -288,12 +288,12 @@ static NSString *cellId = @"NewsCellId";
         _tableView.rowHeight = UITableViewAutomaticDimension;
         [_tableView registerClass:[NewsCell class] forCellReuseIdentifier:cellId];
         __weak typeof(self) weakSelf = self;
-        [_tableView addPullToRefreshWithActionHandler:^{
+        [_tableView cs_addPullDownRefreshWithActionHandler:^{
             [weakSelf refreshData];
         }];
-        [_tableView addInfiniteScrollingWithActionHandler:^{
-            [weakSelf loadNextPage];
-        }];
+//        [_tableView addInfiniteScrollingWithActionHandler:^{
+//            [weakSelf loadNextPage];
+//        }];
     }
     return _tableView;
 }
