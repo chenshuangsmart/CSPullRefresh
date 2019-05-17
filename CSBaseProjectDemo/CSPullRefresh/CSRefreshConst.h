@@ -58,7 +58,7 @@ dispatch_async(dispatch_get_main_queue(), ^{    \
     {code}  \
 }); \
 
-// 状态检查
+// 状态检查 - 只有状态改变才会接着往下执行
 #define CSRefreshStateCheck \
 CSRefreshState oldState = self.state;   \
 if (state == oldState) {    \

@@ -33,6 +33,7 @@
 		40273198228E44A800F7D005 /* CSRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 40273195228E44A700F7D005 /* CSRefreshNormalHeader.m */; };
 		40273199228E44A800F7D005 /* CSRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 40273196228E44A700F7D005 /* CSRefreshHeader.m */; };
 		4027319A228E44A800F7D005 /* CSRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 40273197228E44A700F7D005 /* CSRefreshStateHeader.m */; };
+		402731B8228EC82800F7D005 /* CSRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 402731B7228EC82800F7D005 /* CSRefreshGifHeader.m */; };
 		73A4E80B3769B1F85E1E02CC /* libPods-CSBaseProjectDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBC2D5F0C8BDA6D921B29A9 /* libPods-CSBaseProjectDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,8 @@
 		40273195228E44A700F7D005 /* CSRefreshNormalHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSRefreshNormalHeader.m; sourceTree = "<group>"; };
 		40273196228E44A700F7D005 /* CSRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSRefreshHeader.m; sourceTree = "<group>"; };
 		40273197228E44A700F7D005 /* CSRefreshStateHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSRefreshStateHeader.m; sourceTree = "<group>"; };
+		402731B6228EC82800F7D005 /* CSRefreshGifHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSRefreshGifHeader.h; sourceTree = "<group>"; };
+		402731B7228EC82800F7D005 /* CSRefreshGifHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshGifHeader.m; sourceTree = "<group>"; };
 		9BCB7D971169EA693CDC19C7 /* Pods-CSBaseProjectDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSBaseProjectDemo.debug.xcconfig"; path = "Target Support Files/Pods-CSBaseProjectDemo/Pods-CSBaseProjectDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FBBC2D5F0C8BDA6D921B29A9 /* libPods-CSBaseProjectDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CSBaseProjectDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -222,10 +225,11 @@
 			isa = PBXGroup;
 			children = (
 				402709492286CB8700032FE3 /* CSRemark */,
-				40273191228E44A700F7D005 /* Header */,
 				4027093F2286B4D000032FE3 /* CSPullRefresh.h */,
 				4027094B2286D1C900032FE3 /* CSRefreshConst.h */,
 				4027094C2286D1C900032FE3 /* CSRefreshConst.m */,
+				4027319B228E451D00F7D005 /* Footer */,
+				40273191228E44A700F7D005 /* Header */,
 				402709402286BA0900032FE3 /* CSRefreshComponent.h */,
 				402709412286BA0900032FE3 /* CSRefreshComponent.m */,
 				40273184228E449900F7D005 /* category */,
@@ -251,14 +255,23 @@
 		40273191228E44A700F7D005 /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				402731B6228EC82800F7D005 /* CSRefreshGifHeader.h */,
+				402731B7228EC82800F7D005 /* CSRefreshGifHeader.m */,
 				40273192228E44A700F7D005 /* CSRefreshNormalHeader.h */,
-				40273193228E44A700F7D005 /* CSRefreshStateHeader.h */,
-				40273194228E44A700F7D005 /* CSRefreshHeader.h */,
 				40273195228E44A700F7D005 /* CSRefreshNormalHeader.m */,
-				40273196228E44A700F7D005 /* CSRefreshHeader.m */,
+				40273193228E44A700F7D005 /* CSRefreshStateHeader.h */,
 				40273197228E44A700F7D005 /* CSRefreshStateHeader.m */,
+				40273194228E44A700F7D005 /* CSRefreshHeader.h */,
+				40273196228E44A700F7D005 /* CSRefreshHeader.m */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		4027319B228E451D00F7D005 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Footer;
 			sourceTree = "<group>";
 		};
 		ECC2667F60CFCBF461839D95 /* Frameworks */ = {
@@ -393,6 +406,7 @@
 				4027094D2286D1C900032FE3 /* CSRefreshConst.m in Sources */,
 				402709332286A95F00032FE3 /* NewsActionView.m in Sources */,
 				402709072286A71C00032FE3 /* UILabel+Extension.m in Sources */,
+				402731B8228EC82800F7D005 /* CSRefreshGifHeader.m in Sources */,
 				4027318F228E449900F7D005 /* UIView+CSExtension.m in Sources */,
 				402709162286A72E00032FE3 /* NewsModel.m in Sources */,
 				40273199228E44A800F7D005 /* CSRefreshHeader.m in Sources */,
