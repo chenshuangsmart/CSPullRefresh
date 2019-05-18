@@ -266,6 +266,17 @@
 
 @implementation UILabel(CSRefresh)
 
+/** 快速创建一个 Lbe */
++ (instancetype)cs_createLbe {
+    UILabel *lbe = [[UILabel alloc] init];
+    lbe.font = CSRefreshLabelFont;
+    lbe.textColor = CSRefreshLabelTextColor;
+    lbe.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    lbe.textAlignment = NSTextAlignmentCenter;
+    lbe.backgroundColor = [UIColor clearColor];
+    return lbe;
+}
+
 /// 求 UILabel 控件文字长度
 - (CGFloat)cs_textWidth {
     CGFloat stringWidth = 0;

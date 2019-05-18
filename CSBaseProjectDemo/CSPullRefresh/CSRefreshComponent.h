@@ -117,6 +117,9 @@ typedef void(^CSRefreshComponentEndRefreshingBlock)(void);
 
 @interface UILabel(CSRefresh)
 
+/** 快速创建一个 Lbe */
++ (instancetype)cs_createLbe;
+
 /// 求 UILabel 控件文字长度
 - (CGFloat)cs_textWidth;
 

@@ -36,6 +36,9 @@
 		402731B8228EC82800F7D005 /* CSRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 402731B7228EC82800F7D005 /* CSRefreshGifHeader.m */; };
 		402731BB228ED55600F7D005 /* CSRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 402731BA228ED55600F7D005 /* CSRefreshFooter.m */; };
 		40B0EE73228FC494006ED1F7 /* CSRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0EE72228FC494006ED1F7 /* CSRefreshAutoFooter.m */; };
+		40B0EE76228FD865006ED1F7 /* CSRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0EE75228FD865006ED1F7 /* CSRefreshAutoStateFooter.m */; };
+		40B0EE79228FD8F7006ED1F7 /* CSRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0EE78228FD8F7006ED1F7 /* CSRefreshAutoNormalFooter.m */; };
+		40B0EE7C228FD90E006ED1F7 /* CSRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0EE7B228FD90E006ED1F7 /* CSRefreshAutoGifFooter.m */; };
 		73A4E80B3769B1F85E1E02CC /* libPods-CSBaseProjectDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBC2D5F0C8BDA6D921B29A9 /* libPods-CSBaseProjectDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +101,12 @@
 		402731BA228ED55600F7D005 /* CSRefreshFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshFooter.m; sourceTree = "<group>"; };
 		40B0EE71228FC494006ED1F7 /* CSRefreshAutoFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSRefreshAutoFooter.h; sourceTree = "<group>"; };
 		40B0EE72228FC494006ED1F7 /* CSRefreshAutoFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshAutoFooter.m; sourceTree = "<group>"; };
+		40B0EE74228FD865006ED1F7 /* CSRefreshAutoStateFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSRefreshAutoStateFooter.h; sourceTree = "<group>"; };
+		40B0EE75228FD865006ED1F7 /* CSRefreshAutoStateFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshAutoStateFooter.m; sourceTree = "<group>"; };
+		40B0EE77228FD8F7006ED1F7 /* CSRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
+		40B0EE78228FD8F7006ED1F7 /* CSRefreshAutoNormalFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshAutoNormalFooter.m; sourceTree = "<group>"; };
+		40B0EE7A228FD90E006ED1F7 /* CSRefreshAutoGifFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSRefreshAutoGifFooter.h; sourceTree = "<group>"; };
+		40B0EE7B228FD90E006ED1F7 /* CSRefreshAutoGifFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshAutoGifFooter.m; sourceTree = "<group>"; };
 		9BCB7D971169EA693CDC19C7 /* Pods-CSBaseProjectDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSBaseProjectDemo.debug.xcconfig"; path = "Target Support Files/Pods-CSBaseProjectDemo/Pods-CSBaseProjectDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FBBC2D5F0C8BDA6D921B29A9 /* libPods-CSBaseProjectDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CSBaseProjectDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -294,6 +303,12 @@
 		40B0EE70228FB8C1006ED1F7 /* BackFooter */ = {
 			isa = PBXGroup;
 			children = (
+				40B0EE7A228FD90E006ED1F7 /* CSRefreshAutoGifFooter.h */,
+				40B0EE7B228FD90E006ED1F7 /* CSRefreshAutoGifFooter.m */,
+				40B0EE77228FD8F7006ED1F7 /* CSRefreshAutoNormalFooter.h */,
+				40B0EE78228FD8F7006ED1F7 /* CSRefreshAutoNormalFooter.m */,
+				40B0EE74228FD865006ED1F7 /* CSRefreshAutoStateFooter.h */,
+				40B0EE75228FD865006ED1F7 /* CSRefreshAutoStateFooter.m */,
 				40B0EE71228FC494006ED1F7 /* CSRefreshAutoFooter.h */,
 				40B0EE72228FC494006ED1F7 /* CSRefreshAutoFooter.m */,
 			);
@@ -443,11 +458,14 @@
 				402708E82286A62700032FE3 /* main.m in Sources */,
 				40273198228E44A800F7D005 /* CSRefreshNormalHeader.m in Sources */,
 				402709422286BA0900032FE3 /* CSRefreshComponent.m in Sources */,
+				40B0EE76228FD865006ED1F7 /* CSRefreshAutoStateFooter.m in Sources */,
 				402709102286A71C00032FE3 /* NewsHandler.m in Sources */,
 				40273190228E449900F7D005 /* UIScrollView+CSRefresh.m in Sources */,
+				40B0EE79228FD8F7006ED1F7 /* CSRefreshAutoNormalFooter.m in Sources */,
 				402731BB228ED55600F7D005 /* CSRefreshFooter.m in Sources */,
 				401BD79D228CF2DD0055B54F /* ViewController.m in Sources */,
 				4027318D228E449900F7D005 /* UIScrollView+CSExtension.m in Sources */,
+				40B0EE7C228FD90E006ED1F7 /* CSRefreshAutoGifFooter.m in Sources */,
 				402709082286A71C00032FE3 /* NSString+Additions.m in Sources */,
 				4027092C2286A73B00032FE3 /* NewsCell.m in Sources */,
 				4027090A2286A71C00032FE3 /* HomeViewController.m in Sources */,

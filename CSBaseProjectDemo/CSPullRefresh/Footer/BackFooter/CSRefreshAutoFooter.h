@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- 上拉加载更多 - 自动刷新
+ 上拉加载更多 - 自动刷新基础控件
  */
 @interface CSRefreshAutoFooter : CSRefreshFooter
 
