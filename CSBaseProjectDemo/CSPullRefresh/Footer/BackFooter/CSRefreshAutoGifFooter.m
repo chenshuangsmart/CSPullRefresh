@@ -39,8 +39,6 @@
     
     self.gifImgView.frame = self.bounds;
     
-    self.gifImgView.frame = self.bounds;
-    
     if (self.isRefreshingTitleHidden) {
         self.gifImgView.contentMode = UIViewContentModeCenter;
     } else {
@@ -48,7 +46,6 @@
         self.gifImgView.cs_width = self.cs_width * 0.5 - self.labelLeftDistance - self.stateLbe.cs_textWidth * 0.5;
     }
 }
-
 
 #pragma mark - set
 
