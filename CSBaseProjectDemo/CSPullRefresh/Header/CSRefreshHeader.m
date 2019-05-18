@@ -57,6 +57,7 @@
 
 #pragma mark - 滚动偏移量
 
+/// 根据偏移量改变当前刷新的状态
 - (void)scrollViewContentOffsetDidChange:(NSDictionary *)change {
     [super scrollViewContentOffsetDidChange:change];
     
@@ -90,7 +91,7 @@
     // 普通 和 即将刷新 的临界点
     CGFloat normalToPullingOffsetY = happenOffsetY - self.cs_height;
     CGFloat pullingPercent = (happenOffsetY - offsetY) / self.cs_height;
-    
+//    NSLog(@"offsetY = %f, happenOffsetY = %f, normalToPullingOffsetY = %f",offsetY, happenOffsetY, normalToPullingOffsetY);
     if (self.scrollView.isDragging) {   // 正在拖拽
         self.pullingPercent = pullingPercent;
         if (self.state == CSRefreshStateNormal && offsetY < normalToPullingOffsetY) {
