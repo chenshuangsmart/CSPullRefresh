@@ -16,7 +16,7 @@
 @end
 
 @implementation CSRefreshAutoStateFooter {
-    __weak UILabel *_stateLbe;  // 显示刷新状态的label
+    __weak UILabel *_stateLbe;  /// 显示刷新状态的label
 }
 
 #pragma mark - 布局

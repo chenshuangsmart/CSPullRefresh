@@ -22,7 +22,7 @@
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
     
-    [self scrollViewContentSizeDidChange:nil];
+    [self scrollViewContentSizeDidChange:@{}];
 }
 
 #pragma mark - scrollView delegate
