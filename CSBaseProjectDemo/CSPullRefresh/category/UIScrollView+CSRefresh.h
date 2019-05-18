@@ -74,6 +74,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)hideNoMoreData;
 
+#pragma mark - data
+
+/// 已经展示数据数量
+- (NSInteger)cs_totalDataCount;
+
 @end
 
 NS_ASSUME_NONNULL_END
