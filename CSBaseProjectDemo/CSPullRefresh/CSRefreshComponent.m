@@ -118,6 +118,7 @@
     self.pan = nil;
 }
 
+/** 监听到 KVO 回调,通过代理方式告知子视图控件 */
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     // 如果不可以交互,直接返回
     if (!self.userInteractionEnabled) {

@@ -61,7 +61,7 @@
 - (void)scrollViewContentOffsetDidChange:(NSDictionary *)change {
     [super scrollViewContentOffsetDidChange:change];
     
-    // 在刷新的 refreshing 状态 - 暂时保留
+    /** 正在刷新的 refreshing 状态 - 暂时保留 */
     if (self.state == CSRefreshStateRefreshing) {
         if (self.window == nil) {
             return;
@@ -83,25 +83,27 @@
     // 头部控件刚好出现的offsetY
     CGFloat happenOffsetY = - self.scrollViewOriginalInset.top;
     
-    // 如果是向上滚动到看不见头部控件，直接返回
+    /** 如果是向上滚动到看不见头部控件,即不需要下拉刷新操作,滚回去了.直接返回 */
     if (offsetY > happenOffsetY) {
         return;
     }
     
-    // 普通 和 即将刷新 的临界点
+    /** 说明下拉刷新控件已经显示出来了 */
+    
+    /// normalToPullingOffsetY - 普通 和 即将刷新 的临界点
     CGFloat normalToPullingOffsetY = happenOffsetY - self.cs_height;
     CGFloat pullingPercent = (happenOffsetY - offsetY) / self.cs_height;
-//    NSLog(@"offsetY = %f, happenOffsetY = %f, normalToPullingOffsetY = %f",offsetY, happenOffsetY, normalToPullingOffsetY);
+    
     if (self.scrollView.isDragging) {   // 正在拖拽
         self.pullingPercent = pullingPercent;
-        if (self.state == CSRefreshStateNormal && offsetY < normalToPullingOffsetY) {
+        if (self.state == CSRefreshStateNormal && offsetY < normalToPullingOffsetY) {   // 滚动偏移量已经大于需要刷新的临界值了 - 具备刷新条件
             // 转为即将刷新状态
             self.state = CSRefreshStatePulling;
-        } else if (self.state == CSRefreshStatePulling && offsetY >= normalToPullingOffsetY) {
+        } else if (self.state == CSRefreshStatePulling && offsetY >= normalToPullingOffsetY) {  // 滚动偏移量小于刷新的临界值 - 不需要刷新
             // 转为普通状态
             self.state = CSRefreshStateNormal;
         }
-    } else if (self.state == CSRefreshStatePulling) {   // 即将刷新 && 手松开
+    } else if (self.state == CSRefreshStatePulling) {   /** 松开 + 即将刷新状态 */
         // 开始刷新
         [self beginRefreshing];
     } else if (pullingPercent < 1) {
@@ -111,6 +113,7 @@
 
 #pragma mark - 刷新状态
 
+/// 改变状态 + 告知外界是否需要刷新
 - (void)setState:(CSRefreshState)state {
     CSRefreshStateCheck
     
@@ -126,7 +129,7 @@
         
         // 恢复 inset 和 offset
         [UIView animateWithDuration:kRefreshSlowAnimationDuration animations:^{
-            self.scrollView.cs_insetTop += self.insetTDelta;
+            self.scrollView.cs_insetTop += self.insetTDelta;    /** 视图回滚到刷新前的位置 */
             
             // 自动调整透明度
             if (self.isAutomaticallyChangeAlpha) {
@@ -135,11 +138,11 @@
         } completion:^(BOOL finished) {
             self.pullingPercent = 0.0;
             
-            if (self.endRefreshingCompletionBlock) {
+            if (self.endRefreshingCompletionBlock) {    // 告知外界,刷新完毕
                 self.endRefreshingCompletionBlock();
             }
         }];
-    } else if (state == CSRefreshStateRefreshing) { // 处于刷新状态
+    } else if (state == CSRefreshStateRefreshing) { /** 处于刷新状态 */
         CSRefreshDispatchAsyncOnMainQueue(
             [UIView animateWithDuration:kRefreshFastAnimationDuration animations:^{
                 if (self.scrollView.panGestureRecognizer.state != UIGestureRecognizerStateCancelled) {
@@ -149,10 +152,10 @@
                     // 设置滚动位置
                     CGPoint offset = self.scrollView.contentOffset;
                     offset.y = -top;
-                    [self.scrollView setContentOffset:offset animated:NO];  // 顶部停留一片刷新区域
+                    [self.scrollView setContentOffset:offset animated:NO];  /** 顶部停留在一片区域,让刷新控件可见 */
                 }
             } completion:^(BOOL finished) {
-                [self executeRefreshingCallback];
+                [self executeRefreshingCallback];   /** 真正告知外界可以刷新啦 */
             }];
         )
     }
@@ -167,6 +170,7 @@
 - (void)setIgnoredScrollViewContentInsetTopDistance:(CGFloat)ignoredScrollViewContentInsetTopDistance {
     _ignoredScrollViewContentInsetTopDistance = ignoredScrollViewContentInsetTopDistance;
     
+    /** 设置下拉刷新控件的位置 */
     self.cs_y = - self.cs_height - _ignoredScrollViewContentInsetTopDistance;
 }
 

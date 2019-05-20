@@ -75,6 +75,7 @@
     }
 }
 
+/// 更新 UI 视图操作
 - (void)setState:(CSRefreshState)state {
     CSRefreshStateCheck;
     

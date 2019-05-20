@@ -65,6 +65,7 @@
 
 #pragma mark - 状态相关
 
+/// 更新 UI 视图操作
 - (void)setState:(CSRefreshState)state {
     CSRefreshStateCheck
     
@@ -85,6 +86,7 @@
 
 #pragma mark - key 的处理
 
+/** 更新刷新时间相关操作 */
 - (void)setLastUpdatedTimeKey:(NSString *)lastUpdatedTimeKey {
     [super setLastUpdatedTimeKey:lastUpdatedTimeKey];
     
