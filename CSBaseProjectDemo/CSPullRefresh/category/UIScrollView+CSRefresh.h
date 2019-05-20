@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CSRefreshNormalHeader.h"
+#import "CSRefreshBackNormalFooter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) CSRefreshNormalHeader *cs_header;
 
 /** 上拉加载更多控件 */
-//@property (strong, nonatomic) CDRefreshFooter *cd_footer;
+@property (strong, nonatomic) CSRefreshBackNormalFooter *cd_footer;
 
 #pragma mark - pull down | pull up
 

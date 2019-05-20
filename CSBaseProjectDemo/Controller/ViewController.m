@@ -65,7 +65,7 @@ static NSString *cellId = @"NewsCellId";
 
 - (void)loadNextPage {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self.tableView.infiniteScrollingView stopAnimating];
+        [self.tableView stopFooterRefreshAnimating];
         NSArray *newRows = [self getRandomData];
         [self.dataSource addObjectsFromArray:newRows];
         [self.tableView beginUpdates];
@@ -84,8 +84,8 @@ static NSString *cellId = @"NewsCellId";
 
 - (NSArray *)getRandomData {
     NSMutableArray *models = [NSMutableArray array];
-    int number = arc4random_uniform(30);
-    for (int i = 0; i < 20 + number; i++) {
+    int number = arc4random_uniform(10);
+    for (int i = 0; i < 10 + number; i++) {
         NewsModel *model = [[NewsModel alloc] init];
         model.icon = [[NewsHandler shareInstance].icons objectAtIndex:arc4random_uniform(10)];
         model.title = [[NewsHandler shareInstance].titles objectAtIndex:arc4random_uniform(10)];
@@ -291,9 +291,15 @@ static NSString *cellId = @"NewsCellId";
         [_tableView cs_addPullDownRefreshWithActionHandler:^{
             [weakSelf refreshData];
         }];
-//        [_tableView addInfiniteScrollingWithActionHandler:^{
-//            [weakSelf loadNextPage];
-//        }];
+        [_tableView cs_addPullUpRefreshWithActionHandler:^{
+            [weakSelf loadNextPage];
+        }];
+        if (@available(iOS 11.0, *)) {
+            [UITableView appearance].estimatedSectionHeaderHeight = 0;
+            [UITableView appearance].estimatedSectionFooterHeight = 0;
+            // 解决SafeArea的问题，同时能解决pop时上级页面scrollView抖动的问题.
+            [UIScrollView appearance].contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
     }
     return _tableView;
 }

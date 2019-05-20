@@ -30,6 +30,25 @@ static const char CsRefreshHeaderKey = '\0';
     return objc_getAssociatedObject(self, &CsRefreshHeaderKey);
 }
 
+#pragma mark - footer
+
+static const char CDRefreshFooterKey = '\1';
+
+- (void)setCd_footer:(CSRefreshBackNormalFooter *)cd_footer {
+    if (cd_footer != self.cd_footer) {
+        // 删除旧的，添加新的
+        [self.cd_footer removeFromSuperview];
+        [self insertSubview:cd_footer atIndex:0];
+        
+        // 存储新的
+        objc_setAssociatedObject(self, &CDRefreshFooterKey, cd_footer, OBJC_ASSOCIATION_RETAIN);
+    }
+}
+
+- (CSRefreshBackNormalFooter *)cd_footer {
+    return objc_getAssociatedObject(self, &CDRefreshFooterKey);
+}
+
 #pragma mark - pull down | pull up
 
 /**
@@ -47,16 +66,15 @@ static const char CsRefreshHeaderKey = '\0';
 
 /**
  上拉加载更多
- 
  @param handler 执行代码块
  */
-//- (void)cd_addPullUpRefreshWithActionHandler:(void(^)(void))handler {
-//    self.cd_footer = [CDRefreshFooter footerWithRefreshingBlock:^{
-//        if (handler) {
-//            handler();
-//        }
-//    }];
-//}
+- (void)cs_addPullUpRefreshWithActionHandler:(void(^)(void))handler {
+    self.cd_footer = [CSRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        if (handler) {
+            handler();
+        }
+    }];
+}
 
 /**
  停止下拉刷新动画
@@ -79,20 +97,20 @@ static const char CsRefreshHeaderKey = '\0';
 /**
  停止上拉刷新动画
  */
-//- (void)stopPullUpAnimating {
-//    if (self.cd_footer) {
-//        [self.cd_footer endRefreshing];
-//    }
-//}
+- (void)stopPullUpAnimating {
+    if (self.cd_footer) {
+        [self.cd_footer endRefreshing];
+    }
+}
 
 /**
  停止上拉刷新动画
  */
-//- (void)stopFooterRefreshAnimating {
-//    if (self.cd_footer) {
-//        [self.cd_footer endRefreshing];
-//    }
-//}
+- (void)stopFooterRefreshAnimating {
+    if (self.cd_footer) {
+        [self.cd_footer endRefreshing];
+    }
+}
 
 /// 已经展示数据数量
 - (NSInteger)cs_totalDataCount {
