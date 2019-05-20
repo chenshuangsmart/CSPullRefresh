@@ -51,9 +51,9 @@
     CSRefreshStateCheck;
     
     if (state == CSRefreshStateRefreshing) {
-        [self executeRefreshingCallback];
+        [self executeRefreshingCallback];   /** 通知外界开始要刷新数据啦 */
     } else if (state == CSRefreshStateNormal || state == CSRefreshStateNoMoreData) {
-        // 之前是刷新状态 + 现在停止刷新
+        // 之前是刷新状态 + 现在停止刷新 == 通知外界刷新完成
         if (self.endRefreshingCompletionBlock) {
             self.endRefreshingCompletionBlock();
         }
@@ -82,25 +82,28 @@
 - (void)scrollViewContentSizeDidChange:(NSDictionary *)change {
     [super scrollViewContentSizeDidChange:change];
     
-    // 设置位置
+    /** 设置上拉加载更多控件的位置 */
     self.cs_y = self.scrollView.cs_contentHeight;
 }
 
 - (void)scrollViewContentOffsetDidChange:(NSDictionary *)change {
     [super scrollViewContentOffsetDidChange:change];
     
+    // 如果不是处于正常状态 + 不需要自动刷新 == 直接返回
     if (self.state != CSRefreshStateNormal || !self.isAutomaticRefresh || self.cs_y == 0) {
         return;
     }
     
-    // 内容超过一个屏幕
+    /** 内容超过一个屏幕 */
     if (_scrollView.cs_insetTop + _scrollView.cs_contentHeight > _scrollView.cs_height) {
-        // !这里的_scrollView.mj_contentH替换掉self.mj_y更为合理
-        if (_scrollView.cs_offsetY >= _scrollView.cs_contentHeight - _scrollView.cs_height + self.cs_height * self.triggerAutomaticRefreshPercent + _scrollView.cs_insetBottom - self.cs_height) {
+        /** 即将要刷新数据的临界点 - !这里的_scrollView.cs_contentHeight替换掉self.cs_y更为合理 */
+        float happenOffsetY = _scrollView.cs_contentHeight - _scrollView.cs_height + self.cs_height * self.triggerAutomaticRefreshPercent + _scrollView.cs_insetBottom - self.cs_height;
+        
+        if (_scrollView.cs_offsetY >= happenOffsetY) {  // 偏移量大于临界点
             // 防止手松开时连续调用
             CGPoint old = [change[@"old"] CGPointValue];
             CGPoint new = [change[@"new"] CGPointValue];
-            if (new.y <= old.y) {   // 回滚
+            if (new.y <= old.y) {   // 回滚回去的话就直接 pass
                 return;
             }
             
@@ -121,12 +124,13 @@
     UIGestureRecognizerState panState = _scrollView.panGestureRecognizer.state;
     
     if (panState == UIGestureRecognizerStateEnded) {    // 手松开
-        if (_scrollView.cs_insetTop + _scrollView.cs_contentHeight <= _scrollView.cs_height) {  // 不够一个屏幕
+        if (_scrollView.cs_insetTop + _scrollView.cs_contentHeight <= _scrollView.cs_height) {  /** 不够一个屏幕 */
             if (_scrollView.cs_offsetY >= - _scrollView.cs_insetTop) {
                 // 向上拽
                 [self beginRefreshing];
             }
-        } else {    // 超出一个屏幕
+        } else {    /** 超出一个屏幕 */
+            // 偏移量 >= 刷新控件即将显示所需的偏移量
             if (_scrollView.cs_offsetY >= _scrollView.cs_contentHeight + _scrollView.cs_insetBottom - _scrollView.cs_height) {
                 [self beginRefreshing];
             }

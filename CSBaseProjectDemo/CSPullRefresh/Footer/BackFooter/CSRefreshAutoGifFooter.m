@@ -68,6 +68,7 @@
     }
 }
 
+/// 改变 gif 动画即可
 - (void)setState:(CSRefreshState)state {
     CSRefreshStateCheck;
     

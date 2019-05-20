@@ -66,6 +66,7 @@
     self.stateLbe.text = self.stateTitleJson[@(self.state)];
 }
 
+/// 只需改变 UI 即可
 - (void)setState:(CSRefreshState)state {
     CSRefreshStateCheck;
     
