@@ -88,6 +88,7 @@
     self.gifImgView.image = imgs[index];
 }
 
+/// 主要是改变 UI 操作
 - (void)setState:(CSRefreshState)state {
     CSRefreshStateCheck;
     
