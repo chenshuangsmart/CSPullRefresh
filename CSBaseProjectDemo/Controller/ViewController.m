@@ -146,14 +146,6 @@ static NSString *cellId = @"NewsCellId";
     return cell;
 }
 
-#pragma mark - UIScrollViewDelegate
-
-// 即将停止拖拽时
-// 按需加载 - 如果目标行与当前行相差超过指定行数，只在目标滚动范围的前后指定3行加载。
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    
-}
-
 #pragma mark - NewsCellDelegate
 
 - (void)didTapNewsCellDelete:(NewsModel *)newsModel {

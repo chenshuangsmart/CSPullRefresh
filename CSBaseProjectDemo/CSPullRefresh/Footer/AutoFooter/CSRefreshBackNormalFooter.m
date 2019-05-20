@@ -63,6 +63,7 @@
     [self setNeedsLayout];
 }
 
+/// 主要是改变视图 UI
 - (void)setState:(CSRefreshState)state {
     CSRefreshStateCheck
     
