@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CSRefreshNormalHeader.h"
-#import "CSRefreshBackNormalFooter.h"
+
+@class CSRefreshNormalHeader,CSRefreshBackNormalFooter,CSRefreshNoMoreDataView;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -56,7 +56,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)stopFooterRefreshAnimating;
 
-#pragma mark - no data view
+#pragma mark - no more data
+
+/** 下拉刷新控件 */
+@property (strong, nonatomic) CSRefreshNoMoreDataView *cs_noMordDataView;
 
 /**
  显示没有更多数据视图 - 文字默认为 no data - 如果有 footer 视图,默认会隐藏

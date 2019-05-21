@@ -8,6 +8,9 @@
 
 #import "UIScrollView+CSRefresh.h"
 #import <objc/runtime.h>
+#import "CSRefreshNormalHeader.h"
+#import "CSRefreshBackNormalFooter.h"
+#import "CSRefreshNoMoreDataView.h"
 
 static const char CsRefreshHeaderKey = '\0';
 
@@ -111,6 +114,50 @@ static const char CDRefreshFooterKey = '\1';
         [self.cd_footer endRefreshing];
     }
 }
+
+#pragma mark - no more data
+
+static const char CSRefreshNoMoreDataK = '\2';
+
+- (void)setCs_noMordDataView:(CSRefreshNoMoreDataView *)cs_noMordDataView {
+    if (cs_noMordDataView != self.cs_noMordDataView) {
+        // 移除旧的,添加新的
+        [self.cs_noMordDataView removeFromSuperview];
+        [self insertSubview:cs_noMordDataView atIndex:0];
+        
+        // 存储新的
+        objc_setAssociatedObject(self, &CSRefreshNoMoreDataK, cs_noMordDataView, OBJC_ASSOCIATION_RETAIN);
+    }
+}
+
+- (CSRefreshNoMoreDataView *)cs_noMordDataView {
+    return objc_getAssociatedObject(self, &CSRefreshNoMoreDataK);
+}
+
+/**
+ 显示没有更多数据视图 - 文字默认为 no data - 如果有 footer 视图,默认会隐藏
+ */
+- (void)showNoMoreData {
+    [self showNoMoreDataWithTitle:@"no more"];
+}
+
+/**
+ 显示没有更多数据视图 - 如果有 footer 视图,默认会隐藏
+ 
+ @param title 文案
+ */
+- (void)showNoMoreDataWithTitle:(NSString *)title {
+
+}
+
+/**
+ 隐藏 no more data 视图 - 如果有 footer 视图,默认会显示
+ */
+- (void)hideNoMoreData {
+    
+}
+
+#pragma mark - data
 
 /// 已经展示数据数量
 - (NSInteger)cs_totalDataCount {

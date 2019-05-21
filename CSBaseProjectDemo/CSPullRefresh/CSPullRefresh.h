@@ -10,7 +10,6 @@
 #define CSPullRefresh_h
 
 #import "UIScrollView+CSRefresh.h"
-#import "UIScrollView+CSNoData.h"
 
 // 分类
 #import "UIView+CSExtension.h"

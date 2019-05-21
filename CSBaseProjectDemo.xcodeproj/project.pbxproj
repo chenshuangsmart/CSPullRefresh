@@ -27,7 +27,6 @@
 		4027094A2286CB8700032FE3 /* CSRemark in Resources */ = {isa = PBXBuildFile; fileRef = 402709492286CB8700032FE3 /* CSRemark */; };
 		4027094D2286D1C900032FE3 /* CSRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 4027094C2286D1C900032FE3 /* CSRefreshConst.m */; };
 		4027318D228E449900F7D005 /* UIScrollView+CSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 40273185228E449900F7D005 /* UIScrollView+CSExtension.m */; };
-		4027318E228E449900F7D005 /* UIScrollView+CSNoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 40273187228E449900F7D005 /* UIScrollView+CSNoData.m */; };
 		4027318F228E449900F7D005 /* UIView+CSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 40273188228E449900F7D005 /* UIView+CSExtension.m */; };
 		40273190228E449900F7D005 /* UIScrollView+CSRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 40273189228E449900F7D005 /* UIScrollView+CSRefresh.m */; };
 		40273198228E44A800F7D005 /* CSRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 40273195228E44A700F7D005 /* CSRefreshNormalHeader.m */; };
@@ -43,6 +42,7 @@
 		40B0EE82228FE8A6006ED1F7 /* CSRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0EE81228FE8A6006ED1F7 /* CSRefreshBackStateFooter.m */; };
 		40B0EE85228FE8C5006ED1F7 /* CSRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0EE84228FE8C5006ED1F7 /* CSRefreshBackNormalFooter.m */; };
 		40B0EE88228FE8D7006ED1F7 /* CSRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0EE87228FE8D7006ED1F7 /* CSRefreshBackGifFooter.m */; };
+		40F842772293828B00C97087 /* CSRefreshNoMoreDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F842762293828B00C97087 /* CSRefreshNoMoreDataView.m */; };
 		73A4E80B3769B1F85E1E02CC /* libPods-CSBaseProjectDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBC2D5F0C8BDA6D921B29A9 /* libPods-CSBaseProjectDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -87,11 +87,9 @@
 		4027094C2286D1C900032FE3 /* CSRefreshConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshConst.m; sourceTree = "<group>"; };
 		40273185228E449900F7D005 /* UIScrollView+CSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+CSExtension.m"; sourceTree = "<group>"; };
 		40273186228E449900F7D005 /* UIScrollView+CSRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+CSRefresh.h"; sourceTree = "<group>"; };
-		40273187228E449900F7D005 /* UIScrollView+CSNoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+CSNoData.m"; sourceTree = "<group>"; };
 		40273188228E449900F7D005 /* UIView+CSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CSExtension.m"; sourceTree = "<group>"; };
 		40273189228E449900F7D005 /* UIScrollView+CSRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+CSRefresh.m"; sourceTree = "<group>"; };
 		4027318A228E449900F7D005 /* UIScrollView+CSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+CSExtension.h"; sourceTree = "<group>"; };
-		4027318B228E449900F7D005 /* UIScrollView+CSNoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+CSNoData.h"; sourceTree = "<group>"; };
 		4027318C228E449900F7D005 /* UIView+CSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CSExtension.h"; sourceTree = "<group>"; };
 		40273192228E44A700F7D005 /* CSRefreshNormalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSRefreshNormalHeader.h; sourceTree = "<group>"; };
 		40273193228E44A700F7D005 /* CSRefreshStateHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSRefreshStateHeader.h; sourceTree = "<group>"; };
@@ -119,6 +117,8 @@
 		40B0EE84228FE8C5006ED1F7 /* CSRefreshBackNormalFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshBackNormalFooter.m; sourceTree = "<group>"; };
 		40B0EE86228FE8D7006ED1F7 /* CSRefreshBackGifFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSRefreshBackGifFooter.h; sourceTree = "<group>"; };
 		40B0EE87228FE8D7006ED1F7 /* CSRefreshBackGifFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshBackGifFooter.m; sourceTree = "<group>"; };
+		40F842752293828B00C97087 /* CSRefreshNoMoreDataView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSRefreshNoMoreDataView.h; sourceTree = "<group>"; };
+		40F842762293828B00C97087 /* CSRefreshNoMoreDataView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSRefreshNoMoreDataView.m; sourceTree = "<group>"; };
 		9BCB7D971169EA693CDC19C7 /* Pods-CSBaseProjectDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSBaseProjectDemo.debug.xcconfig"; path = "Target Support Files/Pods-CSBaseProjectDemo/Pods-CSBaseProjectDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FBBC2D5F0C8BDA6D921B29A9 /* libPods-CSBaseProjectDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CSBaseProjectDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -255,6 +255,7 @@
 				4027093F2286B4D000032FE3 /* CSPullRefresh.h */,
 				4027094B2286D1C900032FE3 /* CSRefreshConst.h */,
 				4027094C2286D1C900032FE3 /* CSRefreshConst.m */,
+				40F842742293827000C97087 /* NoMoreData */,
 				4027319B228E451D00F7D005 /* Footer */,
 				40273191228E44A700F7D005 /* Header */,
 				402709402286BA0900032FE3 /* CSRefreshComponent.h */,
@@ -271,8 +272,6 @@
 				40273185228E449900F7D005 /* UIScrollView+CSExtension.m */,
 				40273186228E449900F7D005 /* UIScrollView+CSRefresh.h */,
 				40273189228E449900F7D005 /* UIScrollView+CSRefresh.m */,
-				4027318B228E449900F7D005 /* UIScrollView+CSNoData.h */,
-				40273187228E449900F7D005 /* UIScrollView+CSNoData.m */,
 				4027318C228E449900F7D005 /* UIView+CSExtension.h */,
 				40273188228E449900F7D005 /* UIView+CSExtension.m */,
 			);
@@ -333,6 +332,15 @@
 				40B0EE72228FC494006ED1F7 /* CSRefreshAutoFooter.m */,
 			);
 			path = BackFooter;
+			sourceTree = "<group>";
+		};
+		40F842742293827000C97087 /* NoMoreData */ = {
+			isa = PBXGroup;
+			children = (
+				40F842752293828B00C97087 /* CSRefreshNoMoreDataView.h */,
+				40F842762293828B00C97087 /* CSRefreshNoMoreDataView.m */,
+			);
+			path = NoMoreData;
 			sourceTree = "<group>";
 		};
 		ECC2667F60CFCBF461839D95 /* Frameworks */ = {
@@ -463,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40F842772293828B00C97087 /* CSRefreshNoMoreDataView.m in Sources */,
 				402709092286A71C00032FE3 /* UIView+Extension.m in Sources */,
 				4027094D2286D1C900032FE3 /* CSRefreshConst.m in Sources */,
 				402709332286A95F00032FE3 /* NewsActionView.m in Sources */,
@@ -494,7 +503,6 @@
 				4027092C2286A73B00032FE3 /* NewsCell.m in Sources */,
 				4027090A2286A71C00032FE3 /* HomeViewController.m in Sources */,
 				402708C72286A31D00032FE3 /* AppDelegate.m in Sources */,
-				4027318E228E449900F7D005 /* UIScrollView+CSNoData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
