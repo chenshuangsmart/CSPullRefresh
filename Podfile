@@ -22,7 +22,4 @@ pod 'FMDB'
 # 网络请求
 pod 'AFNetworking', '~> 3.0'
 
-# refresh
-pod 'MJRefresh'
-
 end
