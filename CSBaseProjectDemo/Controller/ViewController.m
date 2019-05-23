@@ -54,6 +54,8 @@ static NSString *cellId = @"NewsCellId";
 #pragma mark - loadData
 
 - (void)refreshData {
+    [self.tableView hideNoMoreData];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView stopHeaderRefreshAnimating];
         NSArray *datas = [self getRandomData];
@@ -66,6 +68,12 @@ static NSString *cellId = @"NewsCellId";
 - (void)loadNextPage {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView stopFooterRefreshAnimating];
+        
+        if (self.dataSource.count > 20) {   // 无更多数据了
+            [self.tableView showNoMoreData];
+            return;
+        }
+        
         NSArray *newRows = [self getRandomData];
         [self.dataSource addObjectsFromArray:newRows];
         [self.tableView beginUpdates];

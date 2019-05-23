@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) CSRefreshNormalHeader *cs_header;
 
 /** 上拉加载更多控件 */
-@property (strong, nonatomic) CSRefreshBackNormalFooter *cd_footer;
+@property (strong, nonatomic) CSRefreshBackNormalFooter *cs_footer;
 
 #pragma mark - pull down | pull up
 

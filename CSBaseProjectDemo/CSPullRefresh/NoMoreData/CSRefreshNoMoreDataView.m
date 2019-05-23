@@ -18,8 +18,12 @@
     NSString *_title;
 }
 
+- (instancetype)initWithTitle:(NSString *)title {
+    return [self initWithFrame:CGRectMake(0, 0, kScreenWidth, kRefreshFooterHeight) title:title];
+}
+
 - (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if (self) {
         _title = title;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -65,6 +69,8 @@
         _scrollView = (UIScrollView *)newSuperview;
         // 设置永远支持垂直弹簧效果
         _scrollView.alwaysBounceVertical = YES;
+        // 这个时候设置 Y 值
+        self.cs_y = self.scrollView.cs_contentHeight;
         // 添加监听
         [self addObservers];
     }
@@ -90,8 +96,8 @@
     
     // 内容可滚动区域 - 就算不可见也需要处理
     if ([keyPath isEqualToString:kRefreshKeyPathContentSize]) {
-        NSValue *pointNewV = (NSValue *)change[NSKeyValueChangeNewKey];
-        self.y = pointNewV.CGSizeValue.height;
+//        NSValue *pointNewV = (NSValue *)change[NSKeyValueChangeNewKey];
+        self.cs_y = self.scrollView.cs_contentHeight;
     }
 }
 

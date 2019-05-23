@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface CSRefreshNoMoreDataView : UIView
 
+/** 通过标题初始化 */
+- (instancetype)initWithTitle:(NSString *)title;
+
 /**
  无数据视图
 

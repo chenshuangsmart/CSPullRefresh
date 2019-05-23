@@ -35,21 +35,21 @@ static const char CsRefreshHeaderKey = '\0';
 
 #pragma mark - footer
 
-static const char CDRefreshFooterKey = '\1';
+static const char CSRefreshFooterKey = '\1';
 
-- (void)setCd_footer:(CSRefreshBackNormalFooter *)cd_footer {
-    if (cd_footer != self.cd_footer) {
+- (void)setCs_footer:(CSRefreshBackNormalFooter *)cs_footer {
+    if (cs_footer != self.cs_footer) {
         // 删除旧的，添加新的
-        [self.cd_footer removeFromSuperview];
-        [self insertSubview:cd_footer atIndex:0];
+        [self.cs_footer removeFromSuperview];
+        [self insertSubview:cs_footer atIndex:0];
         
         // 存储新的
-        objc_setAssociatedObject(self, &CDRefreshFooterKey, cd_footer, OBJC_ASSOCIATION_RETAIN);
+        objc_setAssociatedObject(self, &CSRefreshFooterKey, cs_footer, OBJC_ASSOCIATION_RETAIN);
     }
 }
 
-- (CSRefreshBackNormalFooter *)cd_footer {
-    return objc_getAssociatedObject(self, &CDRefreshFooterKey);
+- (CSRefreshBackNormalFooter *)cs_footer {
+    return objc_getAssociatedObject(self, &CSRefreshFooterKey);
 }
 
 #pragma mark - pull down | pull up
@@ -72,7 +72,7 @@ static const char CDRefreshFooterKey = '\1';
  @param handler 执行代码块
  */
 - (void)cs_addPullUpRefreshWithActionHandler:(void(^)(void))handler {
-    self.cd_footer = [CSRefreshBackNormalFooter footerWithRefreshingBlock:^{
+    self.cs_footer = [CSRefreshBackNormalFooter footerWithRefreshingBlock:^{
         if (handler) {
             handler();
         }
@@ -101,8 +101,8 @@ static const char CDRefreshFooterKey = '\1';
  停止上拉刷新动画
  */
 - (void)stopPullUpAnimating {
-    if (self.cd_footer) {
-        [self.cd_footer endRefreshing];
+    if (self.cs_footer) {
+        [self.cs_footer endRefreshing];
     }
 }
 
@@ -110,8 +110,8 @@ static const char CDRefreshFooterKey = '\1';
  停止上拉刷新动画
  */
 - (void)stopFooterRefreshAnimating {
-    if (self.cd_footer) {
-        [self.cd_footer endRefreshing];
+    if (self.cs_footer) {
+        [self.cs_footer endRefreshing];
     }
 }
 
@@ -147,14 +147,27 @@ static const char CSRefreshNoMoreDataK = '\2';
  @param title 文案
  */
 - (void)showNoMoreDataWithTitle:(NSString *)title {
-
+    if (self.cs_footer) {
+        self.cs_footer.hidden = YES;
+        self.cs_footer.state = CSRefreshStateNoMoreData;
+    }
+    if (self.cs_noMordDataView == nil) {
+        self.cs_noMordDataView = [[CSRefreshNoMoreDataView alloc] initWithTitle:@"no more"];
+    }
 }
 
 /**
  隐藏 no more data 视图 - 如果有 footer 视图,默认会显示
  */
 - (void)hideNoMoreData {
-    
+    if (self.cs_footer) {
+        self.cs_footer.hidden = NO;
+        self.cs_footer.state = CSRefreshStateNormal;
+    }
+    if (self.cs_noMordDataView) {
+        [self.cs_noMordDataView removeFromSuperview];
+        objc_setAssociatedObject(self, &CSRefreshNoMoreDataK, nil, OBJC_ASSOCIATION_RETAIN);
+    }
 }
 
 #pragma mark - data
